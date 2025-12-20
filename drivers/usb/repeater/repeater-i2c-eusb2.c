@@ -439,8 +439,7 @@ static int eusb2_repeater_i2c_probe(struct i2c_client *client)
 				er->param_override_seq_host,
 				er->param_override_seq_cnt_host);
 		if (ret) {
-			dev_err(dev, "qcom,param-override-seq-host read failed %d\n",
-									ret);
+			dev_err(dev, "qcom,param-override-seq-host read failed %d\n", ret);
 			goto err_probe;
 		}
 	}
@@ -456,6 +455,7 @@ static int eusb2_repeater_i2c_probe(struct i2c_client *client)
 	ret = usb_add_repeater_dev(&er->ur);
 	if (ret)
 		goto err_probe;
+	pr_info("%s success.\n", __func__);
 
 	return 0;
 
