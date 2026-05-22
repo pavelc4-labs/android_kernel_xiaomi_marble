@@ -203,6 +203,15 @@ struct ssctl_subsys_event_req {
 	u32 evt_driven;
 };
 
+struct ssctl_subsys_event_with_tid_req {
+	u32 subsys_name_len;
+	char subsys_name[SSCTL_SUBSYS_NAME_LENGTH];
+	u32 event;
+	uint32_t transaction_id;
+	u8 evt_driven_valid;
+	u32 evt_driven;
+};
+
 static struct qmi_elem_info ssctl_subsys_event_req_ei[] = {
 	{
 		.data_type	= QMI_DATA_LEN,
